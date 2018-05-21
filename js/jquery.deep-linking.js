@@ -1,4 +1,4 @@
-var localize_data = localize_data||{};
+var deep_linking = deep_linking||{};
 
 (function($){
 	"use strict";
@@ -7,7 +7,7 @@ var localize_data = localize_data||{};
 
 		settings:{
 			menuSelector: '.menu',
-			baseURL: localize_data['base_url'],
+			baseURL: deep_linking['base_url'],
 		},
 
 		init: function(options){
