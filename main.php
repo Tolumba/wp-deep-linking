@@ -24,7 +24,7 @@ class Main{
 
 		$localize_data['base_url'] = trailingslashit( home_url() );
 
-		wp_localize_script( 'jquery-deep-linking', 'localize_data', $localize_data );
+		wp_localize_script( 'jquery-deep-linking', 'deep_linking', $localize_data );
 		wp_enqueue_script( 'jquery-deep-linking' );
 	}
 

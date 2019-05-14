@@ -1,4 +1,5 @@
-var localize_data = localize_data||{};
+
+var deep_linking = deep_linking||{};
 
 (function($){
 	"use strict";
@@ -7,7 +8,7 @@ var localize_data = localize_data||{};
 
 		settings:{
 			menuSelector: '.menu',
-			baseURL: localize_data['base_url'],
+			baseURL: deep_linking['base_url'],
 		},
 
 		init: function(options){
@@ -28,14 +29,16 @@ var localize_data = localize_data||{};
 
 				e.preventDefault();
 
-				var current_path = window.location.origin + window.location.pathname,
+				var $this = $(this),
+					current_path = window.location.origin + window.location.pathname,
 					base_url     = self.settings.baseURL,
 					is_subpage   = !!current_path.replace( base_url, '' ).length,
+					has_query    = !!window.location.href.match( /^.+\?.+(#.*)?$/i ),
 					has_no_hash  = !this.hash.length;
 
 				if( has_no_hash ){
 					window.location.href = this.href;
-				}else if( is_subpage ){
+				}else if( is_subpage || has_query ){
 					window.location.href =  base_url + this.hash;
 				}else{
 					var state = window.history.state;
@@ -94,7 +97,11 @@ var localize_data = localize_data||{};
 				$target = $(hash),
 				time = 1000;
 
+<<<<<<< HEAD
 			console.log($target);
+=======
+			//console.log($target);
+>>>>>>> master
 
 			if( !!$target.length ){
 				$('html, body').stop().animate({
